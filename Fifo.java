@@ -38,18 +38,21 @@ public class Fifo {
                     System.out.println();
                     break;
                 case 3:
-                case 2:
-                case 1:
-                    if (counterWait > 0) {
+
+                    if (counterWait >= 1) {
                         System.out.println("Занято 3 из 4, добавили страницу из очереди");
                         System.arraycopy(wait, pageStoped, pages, 3, 1); // добавляем в конец одну страницу из спящих страниц — от первой к последней
                         pageStoped++;
                         counterWait--;
                         i++;
                     }
-
                     break;
-
+                case 2:
+                    System.out.println("Занято 2 из 4, больше нет страниц для добавления");
+                    break;
+                case 1:
+                    System.out.println("Занято 1 из 4, больше нет страниц для добавления");
+                    break;
                 case 0:
                     System.out.println();
                     System.out.println(pages[0].name + " обработана и удалена");
